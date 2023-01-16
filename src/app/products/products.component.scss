@@ -1,0 +1,26 @@
+.spinner{
+    top: 50%;
+    left: 50%;
+    transform: translate(0, -50%);
+    position: absolute;
+}
+
+i {
+    position: relative;
+    display: inline-block;
+    font-size: 1.8rem;
+    padding-right: 0.1rem;
+    color: #d3d3d3;
+}
+
+.filled {
+    color: red;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+img{
+    height: 13rem;
+}
