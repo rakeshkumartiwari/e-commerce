@@ -1,0 +1,9 @@
+<ng-template #t let-fill="fill">
+    <i class="bi-star-fill">
+        <i *ngIf="fill > 0" class="bi-star-fill filled" [style.width.%]="fill"></i>
+    </i>
+</ng-template>
+
+<ngb-rating [(rate)]="product.rating.rate" [starTemplate]="t" [readonly]="true" [max]="5">
+</ngb-rating>
+<span class="text-primary">{{product.rating.rate}}</span>

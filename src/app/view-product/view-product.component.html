@@ -1,0 +1,21 @@
+<div class="container mt-5" *ngIf="!isLoading && productDetails">
+    <div class="card">
+        <div class="card-header bg-primary text-light">
+            Product Details
+        </div>
+        <img class="card-img-top" [src]="productDetails.image" alt="productDetails.title">
+        <div class="card-body">
+            <h5 class="card-title">{{productDetails.category | uppercase}}</h5>
+            <h3>{{productDetails.title}}</h3>
+            <p class="card-text">{{productDetails.description}}
+            <p>
+            <h6 class="card-text">{{productDetails.price | currency}}
+            </h6>
+            <div>
+                <app-product-rating [product]="productDetails"></app-product-rating>
+            </div>
+            <a [routerLink]="['/products']" class="btn btn-primary">Back</a>
+        </div>
+    </div>
+</div>
+<app-product-spinner [isLoading]="isLoading"></app-product-spinner>
