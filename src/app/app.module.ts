@@ -10,6 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterProductPipe } from './filter-product.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { ViewProductComponent } from './view-product/view-product.component';
+import { ProductRatingComponent } from './product-rating/product-rating.component';
+import { ProductSpinnerComponent } from './product-spinner/product-spinner.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     HomeComponent,
     ProductsComponent,
-    FilterProductPipe
+    FilterProductPipe,
+    ViewProductComponent,
+    ProductRatingComponent,
+    ProductSpinnerComponent
   ],
   imports: [
     BrowserModule,
