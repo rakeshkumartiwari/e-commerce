@@ -13,6 +13,15 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { ProductRatingComponent } from './product-rating/product-rating.component';
 import { ProductSpinnerComponent } from './product-spinner/product-spinner.component';
+import { StoreModule } from '@ngrx/store';
+import { productReducer } from './state/product.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './state/product.effects';
+import { ProductMenuComponent } from './product-menu/product-menu.component';
+import { ProductBodyComponent } from './product-body/product-body.component';
+import { ProductNavComponent } from './product-nav/product-nav.component';
 
 
 @NgModule({
@@ -23,7 +32,10 @@ import { ProductSpinnerComponent } from './product-spinner/product-spinner.compo
     FilterProductPipe,
     ViewProductComponent,
     ProductRatingComponent,
-    ProductSpinnerComponent
+    ProductSpinnerComponent,
+    ProductMenuComponent,
+    ProductBodyComponent,
+    ProductNavComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +45,9 @@ import { ProductSpinnerComponent } from './product-spinner/product-spinner.compo
     ReactiveFormsModule,
     NgbModule,
     NgbRatingModule,
+    StoreModule.forRoot({products: productReducer}),
+    EffectsModule.forRoot([ProductEffects]),
+    StoreDevtoolsModule.instrument({logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
