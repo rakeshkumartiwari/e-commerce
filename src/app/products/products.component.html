@@ -1,28 +1,50 @@
-<ng-container *ngIf="!isloading">
-    <div class="mt-3 spacing" style="width: 12rem;">
-        <select [(ngModel)]="selectedItem" class="form-select form-select-lg">
-            <option value="" disabled selected>Select Category</option>
-            <option [value]="item.key" *ngFor="let item of products">{{item.key}}</option>
-        </select>
-    </div>
 
-    <div class="spacing">
-        <ng-container *ngFor="let item of products | filterProduct:selectedItem">
-            <h5 class="mt-3">{{item.key | uppercase}}</h5>
-            <div class="row">
-                <ng-container *ngFor="let product of item.value">
-                    <div class="card col-lg-3" style="width: 18rem;">
-                        <img class="card-img-top" [src]="product.image" alt="product.title">
-                        <div class="card-body">
-                            <h5 class="card-title">{{product.title}}</h5>
-                            <h5>{{product.price | currency}}</h5>
-                            <app-product-rating [product]="product"></app-product-rating>
-                            <a [routerLink]="['/view-product', product.id]" class="btn btn-primary">Go somewhere</a>
-                        </div>
+
+<div class="container-panel">
+    <div class="product-menu">
+        <app-product-menu [products]="products" (productName)="getEmmitedProductName($event)"></app-product-menu>
+    </div>
+    <div class="product-body">
+        <ng-container *ngIf="!isloading">
+            <!-- <div class="mt-3 spacing" style="width: 12rem;">
+                <select [(ngModel)]="selectedItem" class="form-select form-select-lg">
+                    <option value="" disabled selected>Select Category</option>
+                    <option [value]="item.key" *ngFor="let item of products">{{item.key}}</option>
+                </select>
+            </div> -->
+        
+            <div class="spacing">
+                <ng-container *ngFor="let item of products | filterProduct:selectedItem">
+                    <h5 class="mt-3">{{item.key | uppercase}}</h5>
+                    <div class="row">
+                        <ng-container *ngFor="let product of item.value">
+                            <div class="card col-lg-3 card-panel">
+                                <img class="card-img-top" [src]="product.image" alt="product.title">
+                                <div class="card-body">
+                                    <div class="close" #content>
+                                        <a [routerLink]="['/view-product', product.id]" target="_blank">
+                                            <h5 class="card-title">{{product.title}}</h5>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p (click)="onMoreClick(content)">more...</p>
+                                    </div>
+                                    <h5>{{product.price | currency}}</h5>
+                                    <app-product-rating [product]="product"></app-product-rating>
+                                    <!-- <a [routerLink]="['/view-product', product.id]" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                            </div>
+                        </ng-container>
                     </div>
                 </ng-container>
             </div>
         </ng-container>
     </div>
-</ng-container>
+</div>
+
+
+
+
+
+
 <app-product-spinner [isLoading]="isloading"></app-product-spinner>

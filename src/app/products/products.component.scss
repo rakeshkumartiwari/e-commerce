@@ -1,14 +1,52 @@
-.spinner{
+.spinner {
     top: 50%;
     left: 50%;
     transform: translate(0, -50%);
     position: absolute;
 }
 
-img{
+img {
     height: 13rem;
 }
 
-.spacing{
+.spacing {
     margin-left: 7rem;
+}
+
+
+.open {
+    height: auto;
+}
+
+.close {
+    height: 1.8rem;
+    overflow: hidden;
+}
+
+p {
+    cursor: pointer;
+}
+
+.card-panel {
+    width: 18rem;
+    padding-top: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container-panel {
+    display: flex;
+    width: 100%;
+    height: auto;
+
+    .product-menu {
+        width: 20%;
+        background-color: #ffffff;
+    }
+
+    .product-body {
+        width: 80%;
+    }
 }
